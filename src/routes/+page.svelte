@@ -74,28 +74,28 @@
 
 <section class="h-screen bg-gray-700">
 	{#if messages.length > 0}
-	<div bind:this={chatContainer} class="max-w-6xl mx-auto h-[80%] mt-16 overflow-y-auto">
-		<div class="space-y-4 p-4">
-			{#each messages as message}
-				<div class={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}>
-					<div
-						class={`max-w-[70%] rounded-lg p-3 ${
-							message.isUser ? 'bg-blue-500 text-white' : 'bg-gray-800 text-white'
-						}`}
-					>
-						{@html message.html || message.content}
+		<div bind:this={chatContainer} class="max-w-6xl mx-auto h-[80%] mt-16 overflow-y-auto">
+			<div class="space-y-4 p-4">
+				{#each messages as message}
+					<div class={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}>
+						<div
+							class={`max-w-[70%] rounded-lg p-3 ${
+								message.isUser ? 'bg-blue-500 text-white' : 'bg-gray-800 text-white'
+							}`}
+						>
+							{@html message.html || message.content}
+						</div>
 					</div>
-				</div>
-			{/each}
-			{#if loading}
-				<div class="flex justify-start">
-					<div class="max-w-[70%] rounded-lg p-3 bg-gray-800 text-white">
-						<span class="loading-dots">...</span>
+				{/each}
+				{#if loading}
+					<div class="flex justify-start">
+						<div class="max-w-[70%] rounded-lg p-3 bg-gray-800 text-white">
+							<span class="loading-dots">...</span>
+						</div>
 					</div>
-				</div>
-			{/if}
+				{/if}
+			</div>
 		</div>
-	</div>
 	{:else}
 		<div class="flex justify-center items-center h-full">
 			<h1 class="text-4xl font-bold text-white">Welcome to Gaurav AI</h1>
@@ -117,7 +117,10 @@
 			>
 				<SendHorizontal />
 			</button>
-		</form>
+		</form> 
+		<p class="text-sm text-gray-500 text-center mt-2">
+			Gaurav Ai can make mistakes. Check important info with other sources.
+		</p>
 	</div>
 </section>
 
